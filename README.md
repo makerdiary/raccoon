@@ -24,6 +24,26 @@ It requires the nRF5 SDK. If not installed locally, the build system can automat
 
 With the dependencies in place, run `make` in the main project folder. Make will download the nRF5 SDK if needed.
 
+### MacOS
+
+Install GNU Arm Embedded Toolchain:
+
+```sh
+brew install --cask gcc-arm-embedded
+```
+
+Install pySerial:
+
+```sh
+pip3 install --user pyserial
+```
+
+Run:
+
+```sh
+make WGET=curl WGET_FLAGS=-O
+```
+
 ## Flash
 
 Flashing depends on the used device.

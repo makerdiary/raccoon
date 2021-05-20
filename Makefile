@@ -5,6 +5,9 @@ NRF5_SDK_ARCHIVE  = $(NRF5_SDK).zip
 NRF5_SDK_MAJOR    = $(shell echo $(NRF5_SDK) | sed -e "s/nRF5_SDK_\([0-9]*\)\..*/\1/g")
 NRF5_SDK_URL      = https://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v$(NRF5_SDK_MAJOR).x.x/$(NRF5_SDK_ARCHIVE)
 
+WGET=wget
+WGET_FLAGS=-c
+
 all: subdirs | $(NRF5_SDK_ROOT)
 
 SUBDIRS = firmware/nrf/blefriend32/armgcc/ \
@@ -38,7 +41,7 @@ endif
 
 $(NRF5_SDK_ARCHIVE):
 	@echo sdk archive not found, downloading now...
-	wget -c $(NRF5_SDK_URL)
+	$(WGET) $(WGET_FLAGS) $(NRF5_SDK_URL)
 
 
 .PHONY: clean
